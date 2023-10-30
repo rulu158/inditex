@@ -19,11 +19,11 @@ import java.time.LocalDateTime;
 
 @RestController
 @RequestMapping(path = "api/v1/price", produces = "application/json")
-public class PricesController {
+public class PriceController {
 
     private final PriceService priceService;
 
-    public PricesController(PriceService priceService) {
+    public PriceController(PriceService priceService) {
         this.priceService = priceService;
     }
 
@@ -49,7 +49,7 @@ public class PricesController {
             }
     )
     @GetMapping
-    public ResponseEntity<PriceResponse> getPrices(
+    public ResponseEntity<PriceResponse> getPrice(
             @Validated
             @RequestParam(name = "date")
             @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)

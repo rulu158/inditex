@@ -1,38 +1,44 @@
 package dev.bracers.inditex.entity;
 
-import dev.bracers.inditex.entity.id.PriceId;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.IdClass;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@RequiredArgsConstructor
 @Entity
-@IdClass(PriceId.class)
+@Table(uniqueConstraints = {
+        @UniqueConstraint(columnNames = {"brandId", "startDate", "endDate", "priceList", "productId", "priority"})
+})
 public class Price {
     @Id
-    private long brandId;
+    @GeneratedValue
+    private long id;
 
+    @NonNull
+    private Long brandId;
+
+    @NonNull
     private LocalDateTime startDate;
 
+    @NonNull
     private LocalDateTime endDate;
 
-    @Id
-    private long priceList;
+    @NonNull
+    private Long priceList;
 
-    @Id
-    private long productId;
+    @NonNull
+    private Long productId;
 
-    @Id
-    private long priority;
+    @NonNull
+    private Long priority;
 
-    private double price;
+    @NonNull
+    private Double price;
 
+    @NonNull
     private String curr;
 }

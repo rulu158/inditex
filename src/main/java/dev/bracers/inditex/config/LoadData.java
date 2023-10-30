@@ -36,7 +36,7 @@ public class LoadData implements CommandLineRunner {
 
         prices.add(
                 new Price(
-                        1,
+                        1L,
                         LocalDateTime.of(
                                 2020,
                                 6,
@@ -53,9 +53,9 @@ public class LoadData implements CommandLineRunner {
                                 59,
                                 59
                         ),
-                        1,
-                        35455,
-                        0,
+                        1L,
+                        35455L,
+                        0L,
                         35.5,
                         "EUR"
                 )
@@ -63,7 +63,7 @@ public class LoadData implements CommandLineRunner {
 
         prices.add(
                 new Price(
-                        1,
+                        1L,
                         LocalDateTime.of(
                                 2020,
                                 6,
@@ -80,9 +80,9 @@ public class LoadData implements CommandLineRunner {
                                 30,
                                 0
                         ),
-                        2,
-                        35455,
-                        1,
+                        2L,
+                        35455L,
+                        1L,
                         25.45,
                         "EUR"
                 )
@@ -90,7 +90,7 @@ public class LoadData implements CommandLineRunner {
 
         prices.add(
                 new Price(
-                        1,
+                        1L,
                         LocalDateTime.of(
                                 2020,
                                 6,
@@ -107,9 +107,9 @@ public class LoadData implements CommandLineRunner {
                                 0,
                                 0
                         ),
-                        3,
-                        35455,
-                        1,
+                        3L,
+                        35455L,
+                        1L,
                         30.5,
                         "EUR"
                 )
@@ -117,7 +117,7 @@ public class LoadData implements CommandLineRunner {
 
         prices.add(
                 new Price(
-                        1,
+                        1L,
                         LocalDateTime.of(
                                 2020,
                                 6,
@@ -134,9 +134,9 @@ public class LoadData implements CommandLineRunner {
                                 59,
                                 59
                         ),
-                        4,
-                        35455,
-                        1,
+                        4L,
+                        35455L,
+                        1L,
                         38.95,
                         "EUR"
                 )

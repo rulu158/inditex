@@ -30,7 +30,7 @@ class PriceServiceImplTest {
     @Test
     void getPriceFound() {
         Price price = new Price(
-                1,
+                1L,
                 LocalDateTime.of(
                         2020,
                         6,
