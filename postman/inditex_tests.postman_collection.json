@@ -7,6 +7,53 @@
 	},
 	"item": [
 		{
+			"name": "Test0",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9970/api/v1/price?date=2020-06-13T00:00:00&product=35455&brand=1",
+					"host": [
+						"localhost"
+					],
+					"port": "9970",
+					"path": [
+						"api",
+						"v1",
+						"price"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "2020-06-13T00:00:00"
+						},
+						{
+							"key": "product",
+							"value": "35455"
+						},
+						{
+							"key": "brand",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Test1",
 			"event": [
 				{
@@ -335,6 +382,133 @@
 						{
 							"key": "brand",
 							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test6",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9970/api/v1/brand?brand=0",
+					"host": [
+						"localhost"
+					],
+					"port": "9970",
+					"path": [
+						"api",
+						"v1",
+						"brand"
+					],
+					"query": [
+						{
+							"key": "brand",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test7",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"name is 'ZARA'\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.name).to.eql(\"ZARA\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9970/api/v1/brand?brand=1",
+					"host": [
+						"localhost"
+					],
+					"port": "9970",
+					"path": [
+						"api",
+						"v1",
+						"brand"
+					],
+					"query": [
+						{
+							"key": "brand",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test8",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"name is 'ZARA'\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.name).to.eql(\"BERSHKA\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9970/api/v1/brand?brand=2",
+					"host": [
+						"localhost"
+					],
+					"port": "9970",
+					"path": [
+						"api",
+						"v1",
+						"brand"
+					],
+					"query": [
+						{
+							"key": "brand",
+							"value": "2"
 						}
 					]
 				}
