@@ -71,6 +71,9 @@ class PriceRepositoryTest {
         //then
         assertTrue(priceFound.isPresent());
         assertEquals(priceFound.get().getPrice(), 35.50);
+        assertEquals(priceFound.get().getPriceList(), 1L);
+        assertEquals(priceFound.get().getBrandId(), 1L);
+        assertEquals(priceFound.get().getProductId(), 35455L);
     }
 
     // we try to search for a date not covered in any range
