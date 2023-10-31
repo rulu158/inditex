@@ -24,6 +24,10 @@ La tabla **PRICE** representa un precio dentro de una tarifa y fechas determinad
 
 El puerto predeterminado es el **9970**.
 
+## Carga de datos
+
+Se ha implementado mediante una implementación de un **CommandLineRunner** que carga los datos al iniciarse el programa. La implementación se encuentra en la clase **LoadData**.
+
 ## Endpoints
 
 Se puede ver la documentación de la API con Swagger en **http://localhost:9970/swagger-ui/index.html**.
@@ -54,9 +58,26 @@ El endpoint devuelve 200 si se ha encontrado la marca o 404 si no existe en base
 - **productId**: identificador del producto
 - **brandId**: identificador de la marca
 - **priceList**: identificador de la tarifa
-- **startDate**: fecha de inicio de la tarifa
-- **endDate**: fecha final de la tarifa
+- **startDate**: fecha de inicio de la tarifa especificada en formato ISO
+- **endDate**: fecha final de la tarifa especificada en formato ISO
 - **price**: precio de la tarifa
 
 El endpoint devuelve 200 si se ha encontrado el precio o 404 si no existe en base de datos.
 
+## Tests unitarios
+
+La aplicación contiene test unitarios para los repositorios (**PriceRepositoryTest**), servicios (**BrandServiceImplTest** y **PriceServiceImplTest**) y controladores (**BrandControllerTest** y **PriceControllerTest**).
+
+## Tests al endpoint con Postman
+
+Para los tests, se ha utilizado Postman. Hay una colección con un total de 9 tests; 6 para el endpoint **api/v1/price** y 3 para el endpoint **api/v1/brand**:
+
+- Test0 (**api/v1/price?date=2020-06-13T00:00:00&product=35455&brand=1**): 13 de Junio de 2020 a las 00:00, producto 35455 y marca 1. Se comprueba que no hay resultados y que se devuelve un código 404.
+- Test1 (**api/v1/price?date=2020-06-14T10:00:00&product=35455&brand=1**): 14 de Junio de 2020 a las 10:00, producto 35455 y marca 1. Se comprueba que se devuelve un código 200 y que los resultados son los correctos.
+- Test2 (**api/v1/price?date=2020-06-14T16:00:00&product=35455&brand=1**): 14 de Junio de 2020 a las 16:00, producto 35455 y marca 1. Se comprueba que se devuelve un código 200 y que los resultados son los correctos.
+- Test3 (**api/v1/price?date=2020-06-14T21:00:00&product=35455&brand=1**): 14 de Junio de 2020 a las 21:00, producto 35455 y marca 1. Se comprueba que se devuelve un código 200 y que los resultados son los correctos.
+- Test4 (**api/v1/price?date=2020-06-15T10:00:00&product=35455&brand=1**): 15 de Junio de 2020 a las 10:00, producto 35455 y marca 1. Se comprueba que se devuelve un código 200 y que los resultados son los correctos.
+- Test5 (**api/v1/price?date=2020-06-16T21:00:00&product=35455&brand=1**): 16 de Junio de 2020 a las 21:00, producto 35455 y marca 1. Se comprueba que se devuelve un código 200 y que los resultados son los correctos.
+- Test6 (**api/v1/brand?brand=0**): se comprueba que la marca no existe y que se devuelve un código 404.
+- Test7 (**api/v1/brand?brand=1**): se comprueba que la marca existe, que se devuelve un código 200 y que la marca es la correcta (*ZARA*).
+- Test8 (**api/v1/brand?brand=1**): se comprueba que la marca existe, que se devuelve un código 200 y que la marca es la correcta (*BERSHKA*).
